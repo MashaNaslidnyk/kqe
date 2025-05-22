@@ -45,7 +45,7 @@ class PolynomialNormalisedKernel(Kernel):
 
 @jit
 def compute_median_heuristic(x1: Array, x2: Optional[Array] = None) -> jnp.ndarray:
-    """Compute the median heuristic for the Gaussian kernel."""
+    """Compute the median heuristic."""
     if x2 is None:
         xs = x1
     else:
