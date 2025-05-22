@@ -26,11 +26,11 @@ cd kqe
   ```
 * **Editable mode that also allows you run experiments:**
 
-To install in editable mode, and also install dependencies required to run the experiments in the `experiments/` folder:
+  To install in editable mode, and also install dependencies required to run the experiments in the `experiments/` folder:
 
-```bash
-make dev-install-experiments
-```
+  ```bash
+  make dev-install-experiments
+  ```
 * **Standard install:**
 
   ```bash
@@ -51,7 +51,7 @@ Y = jnp.array([[1.5], [2.5], [3.5]])
 # Kernel
 k = GaussianKernel(l=1.0)
 
-# Compute unbiased MMD²
+# Compute e-KQD²
 ekqd_val = ekqd(X, Y, kernel_fn=k, num_projections=3)
 print("eKQD²:", ekqd_val)
 ```
