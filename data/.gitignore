@@ -5,4 +5,6 @@
 !cifar_data/cifar10.1_v4_data.npy
 !cifar.json
 !laplace_vs_gaussian.json
+!galaxy.json
 !power_decay.json
+!power_decay_w_mom.json
