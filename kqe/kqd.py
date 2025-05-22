@@ -32,15 +32,6 @@ def rkhs_norm_sq(
     return lmbda @ gram_matrix @ lmbda
 
 
-@partial(jit, static_argnames=["nu_shape"])
-def weighted_wasserstein1D_power_p(X, Y, p, nu_shape="flat", nu_ratio=None):
-    """Compute the squared 1D Wasserstein distance."""
-    power_p_diff = jnp.power(jnp.abs(jnp.sort(X) - jnp.sort(Y)), p)
-    weights = get_weights(X.shape[0], nu_shape, nu_ratio)
-
-    return jnp.dot(weights, power_p_diff)
-
-
 def get_mus(X, Y, mus, num_mus, key):
     """Prepare the mus values."""
     combined = jnp.concatenate([X, Y])
@@ -89,13 +80,11 @@ def compute_tau_power_p(
             ),
             p / 2,
         )
-        weights = get_weights(f_i_X.shape[0], nu_shape, nu_ratio)
-
-        tau_power_p = jnp.dot(weights, power_p_diff)
     else:
-        tau_power_p = weighted_wasserstein1D_power_p(
-            f_i_X, f_i_Y, p, nu_shape, nu_ratio
-        ) / jnp.power(norm_f_i_sq, p / 2)
+        power_p_diff = jnp.power(jnp.abs(jnp.sort(f_i_X) - jnp.sort(f_i_Y)), p)
+        
+    weights = get_weights(f_i_X.shape[0], nu_shape, nu_ratio)
+    tau_power_p = jnp.dot(weights, power_p_diff)
 
     return tau_power_p
 
