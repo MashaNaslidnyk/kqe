@@ -67,7 +67,7 @@ def compute_tau_power_p(
     centered=False,
     mmd_sq=None,
 ):
-    """Compute the Wasserstein projection."""
+    """Compute the power-p directional differences."""
     if centered and mmd_sq is None:
         mmd_sq = mmd_squared_V_statistic(X, Y, kernel_fn)
 
@@ -118,7 +118,7 @@ def compute_distance(
     metric="average",
 ):
     """
-    Generalized function to compute ESW, ESW-centered, or MSW distance.
+    Generalised function to compute e-KQD, e-KQD-Centered, and sup-KQD.
     """
     info(
         f"Compiled {metric} distance with {num_projections=}, {num_mus=}, {normalise=}"
@@ -194,7 +194,7 @@ def ekqd_centered(
     normalise=True,
     p=2,
 ):
-    """Compute the e-KQD-centered distance."""
+    """Compute the e-KQD-Centered distance."""
     return compute_distance(
         X,
         Y,
