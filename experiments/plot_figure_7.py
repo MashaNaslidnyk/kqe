@@ -12,7 +12,7 @@ methods_for_exp = [
 ]
 
 xlabels = ["Number of samples", "Number of samples", "Number of samples"]
-titles = ["Galaxy MNIST", "CIFAR 10 v.s. CIFAR 10.1", "CIFAR 10 v.s. CIFAR 10.1"]
+titles = ["Galaxy MNIST", "CIFAR-10 v.s. CIFAR-10.1", "CIFAR-10 v.s. CIFAR-10.1"]
 
 method_linestyle = dict()
 method_linestyle["ekqd_tr"] = "x-"

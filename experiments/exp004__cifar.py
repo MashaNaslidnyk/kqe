@@ -287,8 +287,8 @@ if __name__ == "__main__":
             rejection_rate = float(jnp.mean(jnp.array(rejections)))
             rejection_rate_dict[distance_name][num_samples] = rejection_rate
 
-            distance_fn_kwargs["ekqd_2_normal"]["mus"] = None
-            distance_fn_kwargs["ekqd_2_uniform"]["mus"] = None
+            distance_fn_kwargs["ekqd_2_mu_normal"]["mus"] = None
+            distance_fn_kwargs["ekqd_2_mu_uniform"]["mus"] = None
 
             # Write partial results to JSON
             json.dump(

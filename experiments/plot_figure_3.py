@@ -19,7 +19,7 @@ titles = [
     "(a) Power Decay",
     "(b) Laplace v.s. Gaussian",
     "(c) Galaxy MNIST",
-    "(d) CIFAR 10 v.s. CIFAR 10.1",
+    "(d) CIFAR-10 v.s. CIFAR-10.1",
 ]
 
 method_linestyle = dict()
